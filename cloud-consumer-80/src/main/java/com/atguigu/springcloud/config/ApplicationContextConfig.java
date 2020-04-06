@@ -1,4 +1,5 @@
 package com.atguigu.springcloud.config;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -6,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class ApplicationContextConfig {
     @Bean
+    @LoadBalanced//以微服务名称访问时要加上，负载均衡
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
